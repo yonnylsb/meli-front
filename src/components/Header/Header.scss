@@ -1,0 +1,11 @@
+@import '../../common/css/vars';
+
+.header {
+    background: $yellow01;
+    padding: 12px 0;
+    &__form {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

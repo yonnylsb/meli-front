@@ -1,40 +1,24 @@
-import React, { Component } from "react";
+import React from "react";
+import Header from "../Header";
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route
+} from "react-router-dom";
 
 import "./reset.scss";
 import "./normalize.scss";
 import "./App.scss";
 
-class App extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      value: ""
-    };
-
-    this.handleChange = this.handleChange.bind(this);
-  }
-
-  handleChange(event) {
-    const { value } = event.target;
-    this.setState(() => {
-      return {
-        value
-      };
-    });
-  }
-
-  render() {
+function App() {
     return (
-      <form>
-        <input
-          type="text"
-          value={this.state.value}
-          onChange={this.handleChange}
-        />
-      </form>
+        <Router>
+            <Header/>
+            <Switch>
+                <Route path="/" />
+            </Switch>
+        </Router>
     );
-  }
 }
 
 export default App;
