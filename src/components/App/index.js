@@ -1,5 +1,7 @@
 import React from "react";
 import Header from "../Header";
+import SearchResults from "../Pages/SearchResults";
+import ItemDetail from "../Pages/ItemDetail";
 import {
     BrowserRouter as Router,
     Switch,
@@ -15,7 +17,9 @@ function App() {
         <Router>
             <Header/>
             <Switch>
-                <Route path="/" />
+                <Route path="/" exact/>
+                <Route path="/items/" exact component={SearchResults}/>
+                <Route path="/items/:id" component={ItemDetail}/>
             </Switch>
         </Router>
     );

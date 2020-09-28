@@ -1,0 +1,24 @@
+@import '../../common/css/vars';
+
+.breadcrumb {
+    width: 980px;
+    margin: 16px auto;
+    &__item {
+        display: inline-block;
+        &:before {
+            content: ">";
+            margin: 0 8px;
+        }
+        &:first-child {
+            &:before {
+                content: none;
+            }
+        }
+        &:last-child {
+            font-weight: bold;
+        }
+    }
+    &__link {
+        color: $gray03;
+    }
+}
