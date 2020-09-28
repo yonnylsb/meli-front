@@ -21,7 +21,8 @@ const BREADCRUMBTEST = [
 ]
 
 function SearchResults() {
-    const { params } = useLocation();
+    const { params, search: querySearch } = useLocation();
+    const getQuery = querySearch && querySearch.replace("?search=","");
     const { search } = params || {};
     const [products, setProducts] = useState([]);
     const [fetchUrl, setfetchUrl] = useState("");
@@ -29,9 +30,9 @@ function SearchResults() {
 
     useEffect(()=>{
         ref.current = true;
-        const getUrl = `http://localhost:5000/api/items?q=${search}`;
+        const getUrl = `http://localhost:5000/api/items?q=${search || getQuery}`;
 
-        if(search && (fetchUrl !== getUrl)){
+        if((search || getQuery) && (fetchUrl !== getUrl)){
             setfetchUrl(getUrl)
         }
         if(ref && (fetchUrl !== getUrl)){
